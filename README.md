@@ -99,19 +99,30 @@ barter_project/
 
 Если у вас есть предложения или проблемы, откройте issue или отправьте pull request.
 
-Скриншоты:
-![2025-06-02_06-10-57](https://github.com/user-attachments/assets/56fcd074-37df-42d4-8dbf-5cf9daff9154)
-![2025-06-02_06-18-22](https://github.com/user-attachments/assets/39439493-c59a-46a3-8682-26099b61e08e)
-![2025-06-02_06-18-30](https://github.com/user-attachments/assets/26b228e7-a9cb-45c1-811f-712a1f5fcb73)
-![2025-06-02_06-18-52](https://github.com/user-attachments/assets/8e947a76-437a-4b5f-bce1-207128c04e05)
-![2025-06-02_06-19-02](https://github.com/user-attachments/assets/973e384a-c538-4570-a7bd-33a15b8ebee3)
-![2025-06-02_06-19-19](https://github.com/user-attachments/assets/43463a1b-703a-4e60-a328-2ead562200fe)
-![2025-06-02_06-19-40](https://github.com/user-attachments/assets/a067d638-2bc4-4b73-bf98-3cd76b4a19bc)
-![2025-06-02_06-19-57](https://github.com/user-attachments/assets/d0083649-6264-4477-bbd8-be1e3746f406)
-![2025-06-02_06-20-07](https://github.com/user-attachments/assets/8ea58329-1988-4de0-83ab-a0d1a9a8e257)
-![2025-06-02_06-20-27](https://github.com/user-attachments/assets/1f1b7873-8271-41dd-a5b9-ace506aa57d2)
-![2025-06-02_06-20-39](https://github.com/user-attachments/assets/bf866c74-1f66-425c-b9f3-b0a53dec9cd6)
-![2025-06-02_06-21-22](https://github.com/user-attachments/assets/ae8894fc-0e90-4671-8976-317a17a17208)
-![2025-06-02_06-23-14](https://github.com/user-attachments/assets/ff231826-d7c3-4903-a6c9-00ffccd93dd8)
-![2025-06-02_06-23-57](https://github.com/user-attachments/assets/9a7d8e67-3da3-4901-95c3-1a8ebe7b397d)
+🧪 Скриншоты интерфейса
+
+Главная страница
+![2025-06-02_06-18-22](https://github.com/user-attachments/assets/0d646fe0-9147-42f1-bd33-d4f792f00e46)
+![2025-06-02_06-18-30](https://github.com/user-attachments/assets/2e732cb3-9afe-4683-b4af-9e6b60d2caef)
+![2025-06-02_06-18-52](https://github.com/user-attachments/assets/c45817d4-a9a3-454c-8efe-d52be50548f5)
+![2025-06-02_06-19-02](https://github.com/user-attachments/assets/42d6527c-bd53-4309-8f31-8cf69172b57f)
+![2025-06-02_06-19-19](https://github.com/user-attachments/assets/3ef729fb-8a7b-4081-aa77-de6235c6c8ed)
+
+
+
+Объявление
+![2025-06-02_06-19-40](https://github.com/user-attachments/assets/6c64484d-f5d8-475c-943e-2a4520bdca33)
+![2025-06-02_06-10-57](https://github.com/user-attachments/assets/6227b1d4-3c64-4cc1-93be-94a313cd6955)
+![2025-06-02_06-19-57](https://github.com/user-attachments/assets/363eb10b-d172-42e6-b9b4-5c70f5840042)
+![2025-06-02_06-20-07](https://github.com/user-attachments/assets/1b30fde0-82e8-4b7e-b3fc-433ad11f341f)
+![2025-06-02_06-20-39](https://github.com/user-attachments/assets/88ae1229-1bdb-472e-8b74-7f81753e6ad3)
+![2025-06-02_06-20-27](https://github.com/user-attachments/assets/79c5b432-116c-4500-8cc1-bf8e152de36d)
+
+
+
+Обмены
+![2025-06-02_06-21-22](https://github.com/user-attachments/assets/bdbbf5c1-7bb3-445a-8724-7c700adf3338)
+![2025-06-02_06-23-57](https://github.com/user-attachments/assets/353bf2b2-1199-4672-9a18-64463fc796ab)
+![2025-06-02_06-23-14](https://github.com/user-attachments/assets/be579cf6-285a-44f3-9785-741d31e0d492)
+
 
