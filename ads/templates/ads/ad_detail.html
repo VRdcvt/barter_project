@@ -1,0 +1,28 @@
+{% extends "ads/base.html" %}
+
+{% block content %}
+<div class="card">
+    {% if ad.image_url %}
+    <img src="{{ ad.image_url }}" class="card-img-top" alt="{{ ad.title }}">
+    {% endif %}
+    <div class="card-body">
+        <h1>{{ ad.title }}</h1>
+        <p>{{ ad.description }}</p>
+        <p>Категория: {{ ad.get_category_display }}</p>
+        <p>Состояние: {{ ad.get_condition_display }}</p>
+    </div>
+</div>
+<div class="d-flex gap-2 mt-3">
+    <a href="{% url 'ad_list' %}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Назад
+    </a>
+
+    {% if user == ad.user %}
+    <a href="{% url 'ad_update' ad.pk %}" class="btn btn-warning">
+        <i class="bi bi-pencil-square"></i> Редактировать
+    </a>
+    <a href="{% url 'ad_delete' ad.pk %}" class="btn btn-danger">
+        <i class="bi bi-trash"></i> Удалить
+    </a>
+    {% endif %}
+{% endblock %}

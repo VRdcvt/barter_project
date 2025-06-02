@@ -1,0 +1,148 @@
+{% extends 'ads/base.html' %}
+
+{% block content %}
+<h1>Объявления</h1>
+
+<form method="get" class="mb-4">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="q" class="form-control" placeholder="Поиск..." value="{{ request.GET.q }}">
+        </div>
+        
+        <!-- Фильтр по категориям -->
+        <div class="col-md-3">
+            <select name="category" class="form-select">
+                <option value="">Все категории</option>
+                {% for value, label in category_choices %}
+                <option value="{{ value }}" {% if request.GET.category == value|stringformat:"s" %}selected{% endif %}>
+                    {{ label }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <!-- Фильтр по состоянию -->
+        <div class="col-md-3">
+            <select name="condition" class="form-select">
+                <option value="">Любое состояние</option>
+                {% for value, label in condition_choices %}
+                <option value="{{ value }}" {% if request.GET.condition == value|stringformat:"s" %}selected{% endif %}>
+                    {{ label }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Фильтровать</button>
+        </div>
+    </div>
+</form>
+
+{% if user.is_authenticated %}
+<div class="mt-4 mb-4 d-flex justify-content-end gap-3">
+    <div class="d-inline-flex gap-3">
+        <a href="#editModal" class="btn btn-outline-warning" data-bs-toggle="modal">
+            <i class="bi bi-pencil"></i> Редактировать объявление
+        </a>
+        <a href="#deleteModal" class="btn btn-outline-danger" data-bs-toggle="modal">
+            <i class="bi bi-trash"></i> Удалить объявление
+        </a>
+        <a href="{% url 'ad_create' %}" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Добавить объявление
+        </a>
+        <a href="{% url 'exchange_proposals' %}" class="btn btn-primary">
+            <i class="bi bi-arrow-left-right"></i> Мои обмены
+        </a>
+    </div>
+</div>
+{% endif %}
+
+{% include 'includes/pagination.html' %}
+<div class="row">
+    {% for ad in page_obj %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            {% if ad.image_url %}
+            <img src="{{ ad.image_url }}" class="card-img-top" alt="{{ ad.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ ad.title }}</h5>
+                <p class="card-text">{{ ad.description|truncatechars:100 }}</p>
+
+                <div class="mb-2">
+                    <span class="badge bg-secondary">{{ ad.get_category_display }}</span>
+                    <span class="badge bg-info text-dark">{{ ad.get_condition_display }}</span>
+                </div>
+
+                <!-- 🔽 добавим ID и имя пользователя в одну строку с кнопкой -->
+                <div class="d-flex justify-content-between align-items-center mt-2">
+                    <div class="text-muted small">
+                        ID: {{ ad.id }}<br>
+                        Пользователь: {{ ad.user.username }}
+                    </div>
+                    <a href="{% url 'ad_detail' ad.pk %}" class="btn btn-primary btn-sm">
+                        Подробнее
+                    </a>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                Опубликовано {{ ad.created_at|date:"d.m.Y" }}
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <p>Объявлений не найдено.</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'includes/pagination.html' %}
+
+<!-- Модальное окно удаления -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="post" action="{% url 'ad_delete_by_id' %}">
+      {% csrf_token %}
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="deleteModalLabel">Удаление объявления</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <label for="ad_id" class="form-label">Введите ID объявления для удаления:</label>
+          <input type="number" name="ad_id" id="ad_id" class="form-control" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-danger">Удалить</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Модальное окно для редактирования -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form method="post" action="{% url 'ad_edit_by_id' %}">
+      {% csrf_token %}
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-dark">
+          <h5 class="modal-title" id="editModalLabel">Редактирование объявления</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <label for="edit_id" class="form-label">Введите ID объявления:</label>
+          <input type="number" name="ad_id" id="edit_id" class="form-control" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-warning">Перейти к редактированию</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

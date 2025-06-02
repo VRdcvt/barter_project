@@ -1,0 +1,32 @@
+{% extends "ads/base.html" %}
+
+{% block title %}Подтверждение объявления{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Подтверждение создания объявления</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>Название:</strong> {{ ad_preview.title }}</p>
+            <p><strong>Описание:</strong> {{ ad_preview.description }}</p>
+            <p><strong>Категория:</strong> {{ ad_preview.get_category_display }}</p>
+            <p><strong>Состояние:</strong> {{ ad_preview.get_condition_display }}</p>
+
+            {% if ad_preview.image_url %}
+            <img src="{{ ad_preview.image_url }}" class="img-fluid rounded" style="max-height: 200px;">
+            {% endif %}
+
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                {{ form.as_p }} {# скрытые данные сохраняются снова #}
+                <button type="submit" name="confirm" class="btn btn-success">
+                    Подтвердить создание
+                </button>
+                <a href="{% url 'ad_create' %}" class="btn btn-secondary">Отмена</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
