@@ -82,6 +82,7 @@ barter_project/
 ├── barter_project/       # Конфигурация проекта
 ├── templates/            # Общие шаблоны
 ├── manage.py             # Точка входа
+├── requirements.txt      # Зависимости
 ```
 
 ---
