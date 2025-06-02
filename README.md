@@ -79,8 +79,8 @@ python manage.py test
 ```
 barter_project/
 ├── ads/                  # Основное приложение с моделями, views и шаблонами
+│   ├── templates/        # Общие шаблоны
 ├── barter_project/       # Конфигурация проекта
-├── templates/            # Общие шаблоны
 ├── manage.py             # Точка входа
 ├── requirements.txt      # Зависимости
 ```
